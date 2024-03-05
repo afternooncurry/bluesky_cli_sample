@@ -1,11 +1,13 @@
 #!/bin/bash
 
+# This script posts message
+
 if [ -z "$1" ] ; then
     echo "Enter a message to be posted as first parameter."
     exit
 fi
 
-# Post "Hello, world" to your feed
+# Post the specified message
 POST_FEED_URL='https://bsky.social/xrpc/com.atproto.repo.createRecord'
 POST_RECORD="{ \"collection\": \"app.bsky.feed.post\", \"repo\": \"${DID}\", \"record\": { \"text\": \"$*\", \"createdAt\": \"$(date +%Y-%m-%dT%H:%M:%S.%3NZ)\", \"\$type\": \"app.bsky.feed.post\" } }"
 curl -X POST \

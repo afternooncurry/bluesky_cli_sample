@@ -1,3 +1,7 @@
+#!/bin/bash
+
+#This script resolves DID for handle
+
 if [ -z "$1" ] ; then
     echo "Enter a handle as first parameter."
     exit
@@ -9,4 +13,5 @@ DID_URL="https://bsky.social/xrpc/com.atproto.identity.resolveHandle"
 DID=$(curl -G \
     --data-urlencode "handle=$HANDLE" \
     "$DID_URL" | jq -r .did)
+echo "DID=$DID" 1>&2
 echo $DID

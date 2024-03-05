@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# This script resolves a DID, retrieves an API key, fetches a user's feed,
-# and posts a "Hello, world" message to the user's feed.
+# This script retrieves an API key
 
 if [ -z "$1" ] && [ -z "$2" ] ; then
     echo "Enter a handle as first parameter and a password as second parameter."
@@ -13,7 +12,7 @@ DID=`util/resolve_did.sh $1`
 echo "DID=$DID"
 export DID
 
-# Get an app password from here: https://staging.bsky.app/settings/app-passwords
+# Get an app password from here: https://bsky.app/settings/app-passwords
 export APP_PASSWORD=$2
 
 # Get API key with the app password
