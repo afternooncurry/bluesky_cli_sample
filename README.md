@@ -2,6 +2,12 @@
 
 ## Samples to use Bluesky API from shell scripts.
 
+### Prerequisite
+- Bash
+- Curl
+- jq
+- sed
+
 ### How to use
 
 1. Execute the comamnd to get API_KEY: `source util/get_api_key.sh ${handle} ${app_password}`

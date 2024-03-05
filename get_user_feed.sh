@@ -11,7 +11,7 @@ fi
 ACTOR=`util/resolve_did.sh $1`
 
 # Get a user's feed
-LIMIT=4
+LIMIT=10
 FEED_URL="https://bsky.social/xrpc/app.bsky.feed.getAuthorFeed"
 curl -G \
     -H "Authorization: Bearer ${API_KEY}" \
