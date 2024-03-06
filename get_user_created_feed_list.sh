@@ -17,6 +17,6 @@ curl -G \
     -H "Authorization: Bearer ${API_KEY}" \
     --data-urlencode "actor=$ACTOR" \
     --data-urlencode "limit=$LIMIT" \
-    "$FEED_URL" | jq ".feeds[]|{displayName,actor:\"$1\",feedName:.uri,did}" |\
-    sed -r 's/at:.+app\.bsky\.feed\.generator\///'
+    "$FEED_URL" | jq ".feeds[]|{displayName,uri,actor:\"$1\",feedName:.uri,did}" |\
+    sed -r 's/"feedName": "at:.+app\.bsky\.feed\.generator\//"feedName": "/'
     

@@ -4,16 +4,13 @@
 
 if [ -z "$1" ] && [ -z "$2" ] ; then
     echo "Enter a handle as first parameter and a password as second parameter."
-    exit
 fi
 
 # Resolve DID for handle
 DID=`util/resolve_did.sh $1`
-echo "DID=$DID"
-export DID
 
 # Get an app password from here: https://bsky.app/settings/app-passwords
-export APP_PASSWORD=$2
+APP_PASSWORD=$2
 
 # Get API key with the app password
 API_KEY_URL='https://bsky.social/xrpc/com.atproto.server.createSession'
@@ -23,5 +20,5 @@ export API_KEY=$(curl -X POST \
     -d "$POST_DATA" \
     "$API_KEY_URL" | jq -r .accessJwt)
 
-echo "env API_KEY was exported using the following data:"
+echo API_KEY=$API_KEY 1>&2
 echo $API_KEY
